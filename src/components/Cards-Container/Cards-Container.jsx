@@ -32,11 +32,20 @@ class CardContainer extends Component{
             var card = myCollections[0].cards[0];
             return (card);
         }
+
+        setNextCard(currentCard){
+            var nextCard = currentCard + 1;
+            return (nextCard);
+        }
+
     render(){
 
         return(
             <div>
-                <CurrentCard word={this.state.currentCard.word} definition={this.state.currentCard.definition} />
+                <CurrentCard title={this.state.currentCollection.title} 
+                             word={this.state.currentCard.word} 
+                             definition={this.state.currentCard.definition} 
+                />
             </div>
         );
     }
