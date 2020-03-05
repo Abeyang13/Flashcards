@@ -6,9 +6,6 @@ function App (){
     return (
       <div className="App">
         <CardContainer />
-        <div>
-        <p>"Hello World"</p>
-      </div>
       </div>
     );
   }
