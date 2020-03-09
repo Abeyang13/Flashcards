@@ -11,7 +11,8 @@ class CardContainer extends Component{
         this.state = {
             collections: collection,
             currentCollection: [],
-            currentCard: []
+            currentCard: [],
+            currentIndex: 0
         }
     }
     componentDidMount(){
@@ -19,21 +20,29 @@ class CardContainer extends Component{
         this.setState({
             collections: myCollections,
             currentCollection: myCollections[0],
-            currentCard: myCollections[0].cards[0]
+            currentCard: myCollections[0].cards[0],
         });
     }
 
-        setNextCard = () =>{
-            const current = this.state.currentCollection;
-            this.setState({
-                currentCard: current.cards
-            });
-        }
+    setNextCard = () =>{
+        const current = this.state.currentCollection;
+        const index = this.state.currentIndex;
+        this.setState({
+            currentCard: current.cards[index + 1],
+            currentIndex: index + 1
+        });
+    }
+
+    setPreviousCard = () =>{
+        const current = this.state.currentCollection;
+        const index = this.state.currentIndex;
+        this.setState({
+            currentCard: current.cards[index - 1],
+            currentIndex: index - 1
+        });
+    }
 
     render(){
-        console.log(this.state.collections);
-        console.log(this.state.currentCollection);
-        console.log(this.state.currentCard);
         return(
             <>
             <div>
@@ -43,7 +52,7 @@ class CardContainer extends Component{
                 />
             </div>
             <div>
-                <button onClick={this.setNextCard}>Next Card</button>
+            <button onClick={this.setPreviousCard}>Previous Card</button><button onClick={this.setNextCard}>Next Card</button>
             </div>
             </>
         );
