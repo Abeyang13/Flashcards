@@ -2,13 +2,13 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import './Current-Card.css';
+import './currentCard.css';
 
 const CurrentCard = (props) => {
     return(
         <div className="current-card">
             <div className="subject-header">
-                <h1>{props.title}</h1>
+                Subject: {props.title}
             </div>
             <Container>
                 <Row>
