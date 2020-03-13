@@ -44,7 +44,6 @@ class CardContainer extends Component{
     }
 
     render(){
-        console.log(this.state.collections);
         return(
             <>
             <div>
@@ -57,11 +56,14 @@ class CardContainer extends Component{
                 <button onClick={this.setPreviousCard}>Previous Card</button>
                 <button onClick={this.setNextCard}>Next Card</button>
             </div>
-            <div>
+            <div className="subject-list">
                 <ul>
                     {
                         this.state.collections.map((collection)=>{
-                            return(<ListOfSubjects title={collection.title} />)
+                            return(<ListOfSubjects 
+                                key={collection.id}
+                                title={collection.title}
+                                 />)
                         })
                     }
                 </ul>
