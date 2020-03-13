@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import CurrentCard from '../Current-Card/currentCard';
+import ListOfSubjects from '../Subject-List/subjectList';
 import collection from '../Data/data';
 import './cardsContainer.css';
 
@@ -43,6 +44,7 @@ class CardContainer extends Component{
     }
 
     render(){
+        console.log(this.state.collections);
         return(
             <>
             <div>
@@ -52,7 +54,17 @@ class CardContainer extends Component{
                 />
             </div>
             <div>
-            <button onClick={this.setPreviousCard}>Previous Card</button><button onClick={this.setNextCard}>Next Card</button>
+                <button onClick={this.setPreviousCard}>Previous Card</button>
+                <button onClick={this.setNextCard}>Next Card</button>
+            </div>
+            <div>
+                <ul>
+                    {
+                        this.state.collections.map((collection)=>{
+                            return(<ListOfSubjects title={collection.title} />)
+                        })
+                    }
+                </ul>
             </div>
             </>
         );
